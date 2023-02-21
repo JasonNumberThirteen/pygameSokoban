@@ -12,15 +12,16 @@ pygame.display.set_caption(GAME_TITLE)
 
 canvas = pygame.display.set_mode(BASE_RESOLUTION)
 is_running = True
-tileA = tile.Tile(32, 32)
-tileB = tile.Tile(64, 32)
+tiles = [tile.Tile(32, 32), tile.Tile(64, 32)]
 boxA = box.Box(64, 32)
 player = player.Player(32, 32)
 
 while is_running:
 	canvas.fill(BACKGROUND_COLOR)
-	tileA.draw(canvas)
-	tileB.draw(canvas)
+	
+	for t in tiles:
+		t.draw(canvas)
+
 	boxA.draw(canvas)
 	player.draw(canvas)
 
