@@ -13,13 +13,24 @@ TILE_BORDER_RADIUS = 8
 pygame.init()
 pygame.display.set_caption(GAME_TITLE)
 
+class Tile(object):
+	def __init__(self, x, y):
+		self.x = x
+		self.y = y
+	
+	def draw(self, surface):
+		pygame.draw.rect(surface, TILE_SHADE_COLOR, pygame.Rect(self.x, self.y + TILE_SHADE_OFFSET, TILE_WIDTH, TILE_HEIGHT), 0, TILE_BORDER_RADIUS)
+		pygame.draw.rect(surface, TILE_COLOR, pygame.Rect(self.x, self.y, TILE_WIDTH, TILE_HEIGHT), 0, TILE_BORDER_RADIUS)
+
 canvas = pygame.display.set_mode(BASE_RESOLUTION)
 is_running = True
+tile = Tile(32, 32)
+tileB = Tile(64, 32)
 
 while is_running:
 	canvas.fill(BACKGROUND_COLOR)
-	pygame.draw.rect(canvas, TILE_SHADE_COLOR, pygame.Rect(32, 32 + TILE_SHADE_OFFSET, TILE_WIDTH, TILE_HEIGHT), 0, TILE_BORDER_RADIUS)
-	pygame.draw.rect(canvas, TILE_COLOR, pygame.Rect(32, 32, TILE_WIDTH, TILE_HEIGHT), 0, TILE_BORDER_RADIUS)
+	tile.draw(canvas)
+	tileB.draw(canvas)
 
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
