@@ -1,5 +1,6 @@
 import pygame
 import tile
+import box
 
 GAME_TITLE = "Sokoban"
 BASE_RESOLUTION = (640, 480)
@@ -12,11 +13,13 @@ canvas = pygame.display.set_mode(BASE_RESOLUTION)
 is_running = True
 tileA = tile.Tile(32, 32)
 tileB = tile.Tile(64, 32)
+boxA = box.Box(64, 32)
 
 while is_running:
 	canvas.fill(BACKGROUND_COLOR)
 	tileA.draw(canvas)
 	tileB.draw(canvas)
+	boxA.draw(canvas)
 
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
