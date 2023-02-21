@@ -11,6 +11,17 @@ class Player(object):
 		self.x = x
 		self.y = y
 	
+	def detect_input(self, event):
+		if event.type == pygame.KEYDOWN:
+			if event.key == ord("w"):
+				self.y -= tile.TILE_HEIGHT
+			elif event.key == ord("s"):
+				self.y += tile.TILE_HEIGHT
+			elif event.key == ord("a"):
+				self.x -= tile.TILE_WIDTH
+			elif event.key == ord("d"):
+				self.x += tile.TILE_WIDTH
+	
 	def draw(self, surface):
 		x = self.x + tile.TILE_WIDTH // 2
 		y = self.y + tile.TILE_HEIGHT // 2

@@ -20,6 +20,8 @@ while is_running:
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			is_running = False
+		
+		level.player.detect_input(event)
 
 	pygame.display.update()
 
