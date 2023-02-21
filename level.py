@@ -1,14 +1,13 @@
-import tile
-import box
-import player
-import box_slot
+import level_builder
 
 class Level(object):
-	def __init__(self):
-		self.tiles = [tile.Tile(32, 32), tile.Tile(64, 32), tile.Tile(96, 32)]
-		self.boxes_slots = [box_slot.BoxSlot(96, 32)]
-		self.boxes = [box.Box(64, 32)]
-		self.player = player.Player(32, 32)
+	def __init__(self, data):
+		lb = level_builder.LevelBuilder()
+		
+		self.tiles = lb.detected_tiles(data)
+		self.boxes_slots = lb.detected_boxes_slots(data)
+		self.boxes = lb.detected_boxes(data)
+		self.player = lb.detected_player(data)
 	
 	def draw(self, surface):
 		for t in self.tiles:
