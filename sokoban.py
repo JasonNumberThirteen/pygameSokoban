@@ -1,7 +1,7 @@
 import pygame
 
 GAME_TITLE = "Sokoban"
-BASE_RESOLUTION = (256, 144)
+BASE_RESOLUTION = (640, 480)
 
 pygame.init()
 pygame.display.set_caption(GAME_TITLE)
