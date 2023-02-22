@@ -2,12 +2,12 @@ import level_builder
 
 class Level(object):
 	def __init__(self, data):
-		lb = level_builder.LevelBuilder()
+		lb = level_builder.LevelBuilder(data)
 		
-		self.tiles = lb.detected_tiles(data)
-		self.boxes_slots = lb.detected_boxes_slots(data)
-		self.boxes = lb.detected_boxes(data)
-		self.player = lb.detected_player(data)
+		self.tiles = lb.detected_tiles()
+		self.boxes_slots = lb.detected_boxes_slots()
+		self.boxes = lb.detected_boxes()
+		self.player = lb.detected_player()
 	
 	def draw(self, surface):
 		for t in self.tiles:
