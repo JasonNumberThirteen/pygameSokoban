@@ -1,6 +1,6 @@
-import text
 import level
 import pygame
+import game_ui
 import constants
 
 class Game(object):
@@ -12,7 +12,7 @@ class Game(object):
 		self.is_running = True
 		self.level_data = [[0, 1, 0, 1, 1], [1, 1, 4, 1, 3], [0, 0, 1, 1, 2]]
 		self.level_one = level.Level(self.level_data)
-		self.moves_counter = text.Text("Moves: " + str(self.level_one.player.moves), 4, 4, (32, 32, 32))
+		self.ui = game_ui.GameUI(self.level_one.player.moves)
 
 		self.loop()
 		pygame.quit()
@@ -37,4 +37,4 @@ class Game(object):
 	def draw(self):
 		self.canvas.fill(constants.BACKGROUND_COLOR)
 		self.level_one.draw(self.canvas)
-		self.moves_counter.draw(self.canvas)
+		self.ui.draw(self.canvas)
