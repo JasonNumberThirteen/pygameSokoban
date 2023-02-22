@@ -10,7 +10,7 @@ class Game(object):
 
 		self.canvas = pygame.display.set_mode((width, height))
 		self.is_running = True
-		self.level = level.Level([[0, 1, 0, 1, 1], [1, 1, 4, 1, 3], [0, 0, 1, 1, 2]])
+		self.level = level.Level("level1.csv")
 		self.ui = game_ui.GameUI(self.level.player.moves)
 
 		self.loop()
