@@ -1,20 +1,17 @@
 import pygame
 import level
-
-GAME_TITLE = "Sokoban"
-BASE_RESOLUTION = (640, 480)
-BACKGROUND_COLOR = (224, 224, 224)
+import constants
 
 pygame.init()
-pygame.display.set_caption(GAME_TITLE)
+pygame.display.set_caption(constants.GAME_TITLE)
 
-canvas = pygame.display.set_mode(BASE_RESOLUTION)
+canvas = pygame.display.set_mode(constants.BASE_RESOLUTION)
 is_running = True
 level_data = [[0, 1, 0, 1, 1], [1, 1, 4, 1, 3], [0, 0, 1, 1, 2]]
 level = level.Level(level_data)
 
 while is_running:
-	canvas.fill(BACKGROUND_COLOR)
+	canvas.fill(constants.BACKGROUND_COLOR)
 	level.draw(canvas)
 
 	for event in pygame.event.get():
