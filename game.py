@@ -14,29 +14,27 @@ class Game(object):
 		self.level_one = level.Level(self.level_data)
 		self.moves_counter = text.Text("Moves: " + str(self.level_one.player.moves), 4, 4, (32, 32, 32))
 
-		while self.is_running:
-			self.canvas.fill(constants.BACKGROUND_COLOR)
-			self.level_one.draw(self.canvas)
-			self.moves_counter.draw(self.canvas)
-
-			for event in pygame.event.get():
-				if event.type == pygame.QUIT:
-					self.is_running = False
-				
-				self.level_one.player.detect_input(event)
-
-			pygame.display.update()
-
+		self.loop()
 		pygame.quit()
 
 	def loop(self):
-		pass
+		while self.is_running:
+			self.detect_input()
+			self.update()
+			self.draw()
+			pygame.display.update()
 
 	def detect_input(self):
-		pass
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				self.is_running = False
+			
+			self.level_one.player.detect_input(event)
 
 	def update(self):
 		pass
 
 	def draw(self):
-		pass
+		self.canvas.fill(constants.BACKGROUND_COLOR)
+		self.level_one.draw(self.canvas)
+		self.moves_counter.draw(self.canvas)
