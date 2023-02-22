@@ -3,12 +3,13 @@ import pygame
 class Text(object):
 	def __init__(self, text, x=0, y=0, color=(255, 255, 255), font_size=32):
 		self.font = pygame.font.SysFont("arial.ttf", font_size)
-		
-		self.set_text(text)
-		self.set_position(x, y)
+
 		self.set_color(color)
+		self.set_text(text)
 
 		self.rect = self.render.get_rect()
+		
+		self.set_position(x, y)
 	
 	def set_text(self, text):
 		self.render = self.font.render(text, True, self.color)
