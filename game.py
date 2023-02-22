@@ -10,9 +10,8 @@ class Game(object):
 
 		self.canvas = pygame.display.set_mode((width, height))
 		self.is_running = True
-		self.level_data = [[0, 1, 0, 1, 1], [1, 1, 4, 1, 3], [0, 0, 1, 1, 2]]
-		self.level_one = level.Level(self.level_data)
-		self.ui = game_ui.GameUI(self.level_one.player.moves)
+		self.level = level.Level([[0, 1, 0, 1, 1], [1, 1, 4, 1, 3], [0, 0, 1, 1, 2]])
+		self.ui = game_ui.GameUI(self.level.player.moves)
 
 		self.loop()
 		pygame.quit()
@@ -29,12 +28,12 @@ class Game(object):
 			if event.type == pygame.QUIT:
 				self.is_running = False
 			
-			self.level_one.player.detect_input(event)
+			self.level.player.detect_input(event)
 
 	def update(self):
 		pass
 
 	def draw(self):
 		self.canvas.fill(constants.BACKGROUND_COLOR)
-		self.level_one.draw(self.canvas)
+		self.level.draw(self.canvas)
 		self.ui.draw(self.canvas)
