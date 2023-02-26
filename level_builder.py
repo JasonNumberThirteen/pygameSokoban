@@ -2,7 +2,6 @@ import box
 import tile
 import player
 import box_slot
-import constants
 
 class LevelBuilder(object):
 	def __init__(self, filename):
