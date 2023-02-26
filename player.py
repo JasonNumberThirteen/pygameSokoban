@@ -45,6 +45,10 @@ class Player(object):
 	def can_move_to(self, level, offset_x, offset_y):
 		for t in level.tiles:
 			if self.x + offset_x == t.x and self.y + offset_y == t.y:
+				for b in level.boxes:
+					if self.x + offset_x == b.x and self.y + offset_y == b.y:
+						return b.can_be_moved(level, offset_x, offset_y)
+				
 				return True
 		
 		return False
