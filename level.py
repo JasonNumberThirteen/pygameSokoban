@@ -1,9 +1,10 @@
 import level_builder
 
 class Level(object):
-	def __init__(self, data):
+	def __init__(self, data, number):
 		lb = level_builder.LevelBuilder(data)
 		
+		self.number = number
 		self.tiles = lb.detected_tiles()
 		self.boxes_slots = lb.detected_boxes_slots()
 		self.boxes = lb.detected_boxes()
