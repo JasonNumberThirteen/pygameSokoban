@@ -1,12 +1,13 @@
+import point
 import pygame
 
 from constants import (PLAYER_UP_MOVEMENT_KEY, PLAYER_DOWN_MOVEMENT_KEY, PLAYER_LEFT_MOVEMENT_KEY, PLAYER_RIGHT_MOVEMENT_KEY, LEVEL_RESTART_KEY, TILE_WIDTH, TILE_HEIGHT, PLAYER_COLOR, PLAYER_RADIUS, PLAYER_SHADE_COLOR, PLAYER_SHADE_OFFSET)
 
-class Player(object):
+class Player(point.Point):
 	def __init__(self, gm, x, y):
+		super().__init__(x, y)
+		
 		self.gm = gm
-		self.x = x
-		self.y = y
 		self.moves = 0
 	
 	def detect_input(self, event, level):

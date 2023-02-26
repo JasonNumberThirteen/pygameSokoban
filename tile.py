@@ -1,12 +1,9 @@
+import point
 import pygame
 
 from constants import (TILE_WIDTH, TILE_HEIGHT, TILE_OFFSET, TILE_COLOR, TILE_BORDER_RADIUS, TILE_SHADE_COLOR, TILE_SHADE_OFFSET)
 
-class Tile(object):
-	def __init__(self, x, y):
-		self.x = x
-		self.y = y
-	
+class Tile(point.Point):
 	def draw(self, surface):
 		x = self.x*TILE_WIDTH + TILE_OFFSET
 		y = self.y*TILE_HEIGHT

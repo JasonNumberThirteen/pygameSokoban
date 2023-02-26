@@ -1,11 +1,12 @@
+import point
 import pygame
 
 from constants import (TILE_WIDTH, TILE_HEIGHT, BOX_WIDTH, BOX_HEIGHT, BOX_COLOR, BOX_BORDER_RADIUS, BOX_SHADE_COLOR, BOX_SHADE_OFFSET)
 
-class Box(object):
+class Box(point.Point):
 	def __init__(self, x, y):
-		self.x = x
-		self.y = y
+		super().__init__(x, y)
+		
 		self.is_in_slot = False
 	
 	def draw(self, surface):
