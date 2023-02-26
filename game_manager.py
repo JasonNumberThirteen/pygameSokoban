@@ -5,6 +5,7 @@ class GameManager(object):
 		self.level = level.Level(self, "level1.csv", 1)
 		self.ui = ui
 
+		self.ui.level_counter.set_text("LEVEL " + str(self.level.number))
 		self.ui.update_moves_counter(self.level.player.moves)
 		self.ui.update_boxes_counter(self.level)
 
