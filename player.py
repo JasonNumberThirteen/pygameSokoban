@@ -7,32 +7,39 @@ class Player(object):
 		self.y = y
 		self.moves = 0
 	
-	def detect_input(self, event):
+	def detect_input(self, event, level):
 		if event.type == pygame.KEYDOWN:
-			if self.can_move_up(event):
+			if self.can_move_up(event, level):
 				self.y -= 1
 				self.moves += 1
-			elif self.can_move_down(event):
+			elif self.can_move_down(event, level):
 				self.y += 1
 				self.moves += 1
-			elif self.can_move_left(event):
+			elif self.can_move_left(event, level):
 				self.x -= 1
 				self.moves += 1
-			elif self.can_move_right(event):
+			elif self.can_move_right(event, level):
 				self.x += 1
 				self.moves += 1
 	
-	def can_move_up(self, event):
-		return event.key == ord("w")
+	def can_move_up(self, event, level):
+		return self.can_move_to(level, 0, -1) and event.key == ord("w")
 	
-	def can_move_down(self, event):
-		return event.key == ord("s")
+	def can_move_down(self, event, level):
+		return self.can_move_to(level, 0, 1) and event.key == ord("s")
 	
-	def can_move_left(self, event):
-		return event.key == ord("a")
+	def can_move_left(self, event, level):
+		return self.can_move_to(level, -1, 0) and event.key == ord("a")
 	
-	def can_move_right(self, event):
-		return event.key == ord("d")
+	def can_move_right(self, event, level):
+		return self.can_move_to(level, 1, 0) and event.key == ord("d")
+	
+	def can_move_to(self, level, offset_x, offset_y):
+		for t in level.tiles:
+			if self.x + offset_x == t.x and self.y + offset_y == t.y:
+				return True
+		
+		return False
 	
 	def draw(self, surface):
 		x = self.x*constants.TILE_WIDTH + constants.TILE_WIDTH // 2

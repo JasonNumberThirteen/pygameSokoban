@@ -28,7 +28,7 @@ class Game(object):
 			if event.type == pygame.QUIT:
 				self.is_running = False
 			
-			self.level.player.detect_input(event)
+			self.level.player.detect_input(event, self.level)
 
 	def update(self):
 		pass
