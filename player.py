@@ -23,16 +23,16 @@ class Player(object):
 				self.moves += 1
 	
 	def can_move_up(self, event, level):
-		return self.can_move_to(level, 0, -1) and event.key == ord("w")
+		return self.can_move_to(level, 0, -1) and self.pressed_key(event, "w")
 	
 	def can_move_down(self, event, level):
-		return self.can_move_to(level, 0, 1) and event.key == ord("s")
+		return self.can_move_to(level, 0, 1) and self.pressed_key(event, "s")
 	
 	def can_move_left(self, event, level):
-		return self.can_move_to(level, -1, 0) and event.key == ord("a")
+		return self.can_move_to(level, -1, 0) and self.pressed_key(event, "a")
 	
 	def can_move_right(self, event, level):
-		return self.can_move_to(level, 1, 0) and event.key == ord("d")
+		return self.can_move_to(level, 1, 0) and self.pressed_key(event, "d")
 	
 	def can_move_to(self, level, offset_x, offset_y):
 		for t in level.tiles:
@@ -40,6 +40,9 @@ class Player(object):
 				return True
 		
 		return False
+	
+	def pressed_key(self, event, key):
+		return event.key == ord(key)
 	
 	def draw(self, surface):
 		x = self.x*constants.TILE_WIDTH + constants.TILE_WIDTH // 2
