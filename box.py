@@ -5,6 +5,7 @@ class Box(object):
 	def __init__(self, x, y):
 		self.x = x
 		self.y = y
+		self.is_in_slot = False
 	
 	def draw(self, surface):
 		x = self.x*constants.TILE_WIDTH + (constants.TILE_WIDTH - constants.BOX_WIDTH) // 2
@@ -24,6 +25,15 @@ class Box(object):
 		self.x += offset_x
 		self.y += offset_y
 
+		self.check_if_it_is_in_slot(level)
+	
+	def check_if_it_is_in_slot(self, level):
 		for bs in level.boxes_slots:
-			if self.x == bs.x and self.y == bs.y:
-				print("Inserted box to the correct place!")
+			if self.x == bs.x and self.y == bs.y and not self.is_in_slot:
+				self.is_in_slot = True
+
+				break
+			elif self.is_in_slot:
+				self.is_in_correct_place = False
+
+				break

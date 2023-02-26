@@ -14,21 +14,25 @@ class Player(object):
 				self.moves += 1
 
 				ui.update_moves_counter(self.moves)
+				ui.update_boxes_counter(level)
 			elif self.can_move_down(event, level):
 				self.y += 1
 				self.moves += 1
 
 				ui.update_moves_counter(self.moves)
+				ui.update_boxes_counter(level)
 			elif self.can_move_left(event, level):
 				self.x -= 1
 				self.moves += 1
 
 				ui.update_moves_counter(self.moves)
+				ui.update_boxes_counter(level)
 			elif self.can_move_right(event, level):
 				self.x += 1
 				self.moves += 1
 
 				ui.update_moves_counter(self.moves)
+				ui.update_boxes_counter(level)
 	
 	def can_move_up(self, event, level):
 		return self.can_move_to(level, 0, -1) and self.pressed_key(event, "w")

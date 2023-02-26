@@ -21,3 +21,12 @@ class Level(object):
 			b.draw(surface)
 		
 		self.player.draw(surface)
+	
+	def inserted_boxes(self):
+		count = 0
+
+		for b in self.boxes:
+			if b.is_in_slot:
+				count += 1
+
+		return count
