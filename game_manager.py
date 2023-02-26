@@ -23,4 +23,4 @@ class GameManager(object):
 		self.ui.update_boxes_counter(self.level)
 	
 	def completed_level(self):
-		return self.level.inserted_boxes() == len(self.level.boxes)
+		return self.level.inserted_boxes() == len(self.level.boxes_slots)

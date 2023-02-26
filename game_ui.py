@@ -18,6 +18,6 @@ class GameUI(object):
 		self.moves_counter.rect.right = constants.GAME_WIDTH
 
 	def update_boxes_counter(self, level):
-		self.boxes_counter.set_text("Boxes: " + str(level.inserted_boxes()) + "/" + str(len(level.boxes)))
+		self.boxes_counter.set_text("Boxes: " + str(level.inserted_boxes()) + "/" + str(len(level.boxes_slots)))
 
 		self.boxes_counter.rect = self.boxes_counter.render.get_rect(centerx=constants.GAME_WIDTH // 2)
