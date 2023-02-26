@@ -1,5 +1,6 @@
 import pygame
-import constants
+
+from constants import (TILE_WIDTH, TILE_HEIGHT, BOX_WIDTH, BOX_HEIGHT, BOX_COLOR, BOX_BORDER_RADIUS, BOX_SHADE_COLOR, BOX_SHADE_OFFSET)
 
 class Box(object):
 	def __init__(self, x, y):
@@ -8,11 +9,11 @@ class Box(object):
 		self.is_in_slot = False
 	
 	def draw(self, surface):
-		x = self.x*constants.TILE_WIDTH + (constants.TILE_WIDTH - constants.BOX_WIDTH) // 2
-		y = self.y*constants.TILE_HEIGHT + (constants.TILE_HEIGHT - constants.BOX_HEIGHT) // 2
+		x = self.x*TILE_WIDTH + (TILE_WIDTH - BOX_WIDTH) // 2
+		y = self.y*TILE_HEIGHT + (TILE_HEIGHT - BOX_HEIGHT) // 2
 		
-		pygame.draw.rect(surface, constants.BOX_SHADE_COLOR, pygame.Rect(x, y + constants.BOX_SHADE_OFFSET, constants.BOX_WIDTH, constants.BOX_HEIGHT), 0, constants.BOX_BORDER_RADIUS)
-		pygame.draw.rect(surface, constants.BOX_COLOR, pygame.Rect(x, y, constants.BOX_WIDTH, constants.BOX_HEIGHT), 0, constants.BOX_BORDER_RADIUS)
+		pygame.draw.rect(surface, BOX_SHADE_COLOR, pygame.Rect(x, y + BOX_SHADE_OFFSET, BOX_WIDTH, BOX_HEIGHT), 0, BOX_BORDER_RADIUS)
+		pygame.draw.rect(surface, BOX_COLOR, pygame.Rect(x, y, BOX_WIDTH, BOX_HEIGHT), 0, BOX_BORDER_RADIUS)
 	
 	def can_be_moved(self, level, offset_x, offset_y):
 		for t in level.tiles:

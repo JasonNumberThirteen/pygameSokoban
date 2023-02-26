@@ -1,5 +1,6 @@
 import pygame
-import constants
+
+from constants import (PLAYER_UP_MOVEMENT_KEY, PLAYER_DOWN_MOVEMENT_KEY, PLAYER_LEFT_MOVEMENT_KEY, PLAYER_RIGHT_MOVEMENT_KEY, LEVEL_RESTART_KEY, TILE_WIDTH, TILE_HEIGHT, PLAYER_COLOR, PLAYER_RADIUS, PLAYER_SHADE_COLOR, PLAYER_SHADE_OFFSET)
 
 class Player(object):
 	def __init__(self, gm, x, y):
@@ -30,16 +31,16 @@ class Player(object):
 				self.gm.restart_level()
 	
 	def can_move_up(self, event, level):
-		return self.can_move_to(level, 0, -1) and self.pressed_key(event, constants.PLAYER_UP_MOVEMENT_KEY)
+		return self.can_move_to(level, 0, -1) and self.pressed_key(event, PLAYER_UP_MOVEMENT_KEY)
 	
 	def can_move_down(self, event, level):
-		return self.can_move_to(level, 0, 1) and self.pressed_key(event, constants.PLAYER_DOWN_MOVEMENT_KEY)
+		return self.can_move_to(level, 0, 1) and self.pressed_key(event, PLAYER_DOWN_MOVEMENT_KEY)
 	
 	def can_move_left(self, event, level):
-		return self.can_move_to(level, -1, 0) and self.pressed_key(event, constants.PLAYER_LEFT_MOVEMENT_KEY)
+		return self.can_move_to(level, -1, 0) and self.pressed_key(event, PLAYER_LEFT_MOVEMENT_KEY)
 	
 	def can_move_right(self, event, level):
-		return self.can_move_to(level, 1, 0) and self.pressed_key(event, constants.PLAYER_RIGHT_MOVEMENT_KEY)
+		return self.can_move_to(level, 1, 0) and self.pressed_key(event, PLAYER_RIGHT_MOVEMENT_KEY)
 	
 	def can_move_to(self, level, offset_x, offset_y):
 		for t in level.tiles:
@@ -58,14 +59,14 @@ class Player(object):
 		return False
 	
 	def can_reset_level(self, event):
-		return self.moves > 0 and self.pressed_key(event, constants.LEVEL_RESTART_KEY)
+		return self.moves > 0 and self.pressed_key(event, LEVEL_RESTART_KEY)
 	
 	def pressed_key(self, event, key):
 		return event.key == ord(key)
 	
 	def draw(self, surface):
-		x = self.x*constants.TILE_WIDTH + constants.TILE_WIDTH // 2
-		y = self.y*constants.TILE_HEIGHT + constants.TILE_HEIGHT // 2
+		x = self.x*TILE_WIDTH + TILE_WIDTH // 2
+		y = self.y*TILE_HEIGHT + TILE_HEIGHT // 2
 		
-		pygame.draw.circle(surface, constants.PLAYER_SHADE_COLOR, (x, y + constants.PLAYER_SHADE_OFFSET), constants.PLAYER_RADIUS)
-		pygame.draw.circle(surface, constants.PLAYER_COLOR, (x, y), constants.PLAYER_RADIUS)
+		pygame.draw.circle(surface, PLAYER_SHADE_COLOR, (x, y + PLAYER_SHADE_OFFSET), PLAYER_RADIUS)
+		pygame.draw.circle(surface, PLAYER_COLOR, (x, y), PLAYER_RADIUS)

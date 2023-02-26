@@ -1,7 +1,8 @@
 import pygame
 import game_ui
-import constants
 import game_manager
+
+from constants import BACKGROUND_COLOR
 
 class Game(object):
 	def __init__(self, width, height, title="Game Window"):
@@ -34,6 +35,6 @@ class Game(object):
 		pass
 
 	def draw(self):
-		self.canvas.fill(constants.BACKGROUND_COLOR)
+		self.canvas.fill(BACKGROUND_COLOR)
 		self.gm.level.draw(self.canvas)
 		self.ui.draw(self.canvas)
