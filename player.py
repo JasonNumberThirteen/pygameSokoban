@@ -26,7 +26,7 @@ class Player(object):
 				self.x += 1
 				
 				self.gm.on_player_move(self)
-			elif self.pressed_key(event, "r"):
+			elif self.can_reset_level(event):
 				self.gm.restart_level()
 	
 	def can_move_up(self, event, level):
@@ -56,6 +56,9 @@ class Player(object):
 				return True
 		
 		return False
+	
+	def can_reset_level(self, event):
+		return self.moves > 0 and self.pressed_key(event, "r")
 	
 	def pressed_key(self, event, key):
 		return event.key == ord(key)
