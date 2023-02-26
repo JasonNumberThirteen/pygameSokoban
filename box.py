@@ -34,6 +34,6 @@ class Box(object):
 
 				break
 			elif self.is_in_slot:
-				self.is_in_correct_place = False
+				self.is_in_slot = False
 
 				break
