@@ -18,8 +18,8 @@ class RectangularObject(point.Point):
 		
 		pygame.draw.rect(surface, self.color, rect, self.frame_width, self.border_radius)
 
-	def offset_x():
+	def offset_x(self):
 		return 0
 	
-	def offset_y():
+	def offset_y(self):
 		return 0
