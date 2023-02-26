@@ -30,16 +30,16 @@ class Player(object):
 				self.gm.restart_level()
 	
 	def can_move_up(self, event, level):
-		return self.can_move_to(level, 0, -1) and self.pressed_key(event, "w")
+		return self.can_move_to(level, 0, -1) and self.pressed_key(event, constants.PLAYER_UP_MOVEMENT_KEY)
 	
 	def can_move_down(self, event, level):
-		return self.can_move_to(level, 0, 1) and self.pressed_key(event, "s")
+		return self.can_move_to(level, 0, 1) and self.pressed_key(event, constants.PLAYER_DOWN_MOVEMENT_KEY)
 	
 	def can_move_left(self, event, level):
-		return self.can_move_to(level, -1, 0) and self.pressed_key(event, "a")
+		return self.can_move_to(level, -1, 0) and self.pressed_key(event, constants.PLAYER_LEFT_MOVEMENT_KEY)
 	
 	def can_move_right(self, event, level):
-		return self.can_move_to(level, 1, 0) and self.pressed_key(event, "d")
+		return self.can_move_to(level, 1, 0) and self.pressed_key(event, constants.PLAYER_RIGHT_MOVEMENT_KEY)
 	
 	def can_move_to(self, level, offset_x, offset_y):
 		for t in level.tiles:
@@ -58,7 +58,7 @@ class Player(object):
 		return False
 	
 	def can_reset_level(self, event):
-		return self.moves > 0 and self.pressed_key(event, "r")
+		return self.moves > 0 and self.pressed_key(event, constants.LEVEL_RESTART_KEY)
 	
 	def pressed_key(self, event, key):
 		return event.key == ord(key)

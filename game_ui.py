@@ -3,9 +3,9 @@ import constants
 
 class GameUI(object):
 	def __init__(self):
-		self.level_counter = text.Text("", 4, 4, (32, 32, 32))
-		self.moves_counter = text.Text("", 4, 4, (32, 32, 32))
-		self.boxes_counter = text.Text("", 4, 4, (32, 32, 32))
+		self.level_counter = text.Text("", 4, 4, constants.UI_TEXT_COLOR)
+		self.moves_counter = text.Text("", 4, 4, constants.UI_TEXT_COLOR)
+		self.boxes_counter = text.Text("", 4, 4, constants.UI_TEXT_COLOR)
 
 	def draw(self, surface):
 		self.level_counter.draw(surface)
