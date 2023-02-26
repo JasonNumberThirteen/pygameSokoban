@@ -26,6 +26,8 @@ class Player(object):
 				self.x += 1
 				
 				self.gm.on_player_move(self)
+			elif self.pressed_key(event, "r"):
+				self.gm.restart_level()
 	
 	def can_move_up(self, event, level):
 		return self.can_move_to(level, 0, -1) and self.pressed_key(event, "w")
