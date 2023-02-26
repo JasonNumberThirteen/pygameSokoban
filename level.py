@@ -15,16 +15,14 @@ class Level(object):
 		self.player = lb.detected_player(gm)
 	
 	def draw(self, surface):
-		for t in self.tiles:
-			t.draw(surface)
-		
-		for bs in self.boxes_slots:
-			bs.draw(surface)
-
-		for b in self.boxes:
-			b.draw(surface)
-		
+		self.draw_objects(surface, self.tiles)
+		self.draw_objects(surface, self.boxes_slots)
+		self.draw_objects(surface, self.boxes)
 		self.player.draw(surface)
+	
+	def draw_objects(self, surface, objects):
+		for o in objects:
+			o.draw(surface)
 	
 	def inserted_boxes(self):
 		count = 0
