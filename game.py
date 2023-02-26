@@ -11,7 +11,7 @@ class Game(object):
 		self.canvas = pygame.display.set_mode((width, height))
 		self.is_running = True
 		self.level = level.Level("level1.csv")
-		self.ui = game_ui.GameUI(self.level.player.moves)
+		self.ui = game_ui.GameUI(self.level.player)
 
 		self.loop()
 		pygame.quit()
@@ -28,7 +28,7 @@ class Game(object):
 			if event.type == pygame.QUIT:
 				self.is_running = False
 			
-			self.level.player.detect_input(event, self.level)
+			self.level.player.detect_input(event, self.level, self.ui)
 
 	def update(self):
 		pass

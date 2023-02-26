@@ -7,20 +7,28 @@ class Player(object):
 		self.y = y
 		self.moves = 0
 	
-	def detect_input(self, event, level):
+	def detect_input(self, event, level, ui):
 		if event.type == pygame.KEYDOWN:
 			if self.can_move_up(event, level):
 				self.y -= 1
 				self.moves += 1
+
+				ui.update_moves_counter(self.moves)
 			elif self.can_move_down(event, level):
 				self.y += 1
 				self.moves += 1
+
+				ui.update_moves_counter(self.moves)
 			elif self.can_move_left(event, level):
 				self.x -= 1
 				self.moves += 1
+
+				ui.update_moves_counter(self.moves)
 			elif self.can_move_right(event, level):
 				self.x += 1
 				self.moves += 1
+
+				ui.update_moves_counter(self.moves)
 	
 	def can_move_up(self, event, level):
 		return self.can_move_to(level, 0, -1) and self.pressed_key(event, "w")
