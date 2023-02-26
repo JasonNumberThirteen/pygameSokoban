@@ -2,37 +2,30 @@ import pygame
 import constants
 
 class Player(object):
-	def __init__(self, x, y):
+	def __init__(self, gm, x, y):
+		self.gm = gm
 		self.x = x
 		self.y = y
 		self.moves = 0
 	
-	def detect_input(self, event, level, ui):
+	def detect_input(self, event, level):
 		if event.type == pygame.KEYDOWN:
 			if self.can_move_up(event, level):
 				self.y -= 1
-				self.moves += 1
-
-				ui.update_moves_counter(self.moves)
-				ui.update_boxes_counter(level)
+				
+				self.gm.on_player_move(self)
 			elif self.can_move_down(event, level):
 				self.y += 1
-				self.moves += 1
-
-				ui.update_moves_counter(self.moves)
-				ui.update_boxes_counter(level)
+				
+				self.gm.on_player_move(self)
 			elif self.can_move_left(event, level):
 				self.x -= 1
-				self.moves += 1
-
-				ui.update_moves_counter(self.moves)
-				ui.update_boxes_counter(level)
+				
+				self.gm.on_player_move(self)
 			elif self.can_move_right(event, level):
 				self.x += 1
-				self.moves += 1
-
-				ui.update_moves_counter(self.moves)
-				ui.update_boxes_counter(level)
+				
+				self.gm.on_player_move(self)
 	
 	def can_move_up(self, event, level):
 		return self.can_move_to(level, 0, -1) and self.pressed_key(event, "w")

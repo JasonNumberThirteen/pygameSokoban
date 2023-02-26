@@ -13,6 +13,7 @@ class Text(object):
 	
 	def set_text(self, text):
 		self.render = self.font.render(text, True, self.color)
+		
 	
 	def set_position(self, x, y):
 		self.rect.x = x

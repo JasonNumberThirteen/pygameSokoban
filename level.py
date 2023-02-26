@@ -1,14 +1,14 @@
 import level_builder
 
 class Level(object):
-	def __init__(self, data, number):
+	def __init__(self, gm, data, number):
 		lb = level_builder.LevelBuilder(data)
 		
 		self.number = number
 		self.tiles = lb.detected_tiles()
 		self.boxes_slots = lb.detected_boxes_slots()
 		self.boxes = lb.detected_boxes()
-		self.player = lb.detected_player()
+		self.player = lb.detected_player(gm)
 	
 	def draw(self, surface):
 		for t in self.tiles:

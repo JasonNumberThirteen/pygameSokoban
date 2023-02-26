@@ -1,4 +1,3 @@
-import level
 import pygame
 import game_ui
 import constants
@@ -11,8 +10,8 @@ class Game(object):
 
 		self.canvas = pygame.display.set_mode((width, height))
 		self.is_running = True
-		self.gm = game_manager.GameManager()
-		self.ui = game_ui.GameUI(self.gm.level.player.moves, self.gm.level)
+		self.ui = game_ui.GameUI()
+		self.gm = game_manager.GameManager(self.ui)
 
 		self.loop()
 		pygame.quit()
@@ -29,7 +28,7 @@ class Game(object):
 			if event.type == pygame.QUIT:
 				self.is_running = False
 			
-			self.gm.level.player.detect_input(event, self.gm.level, self.ui)
+			self.gm.level.player.detect_input(event, self.gm.level)
 
 	def update(self):
 		pass

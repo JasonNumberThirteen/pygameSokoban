@@ -47,10 +47,10 @@ class LevelBuilder(object):
 		
 		return boxes
 
-	def detected_player(self):
+	def detected_player(self, gm):
 		for y in range(0, len(self.data)):
 			for x in range(0, len(self.data[y])):
 				if int(self.data[y][x]) == 4:
-					return player.Player(x, y)
+					return player.Player(gm, x, y)
 		
 		return None
