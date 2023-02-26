@@ -10,16 +10,16 @@ class Player(object):
 	def detect_input(self, event):
 		if event.type == pygame.KEYDOWN:
 			if self.can_move_up(event):
-				self.y -= constants.TILE_HEIGHT
+				self.y -= 1
 				self.moves += 1
 			elif self.can_move_down(event):
-				self.y += constants.TILE_HEIGHT
+				self.y += 1
 				self.moves += 1
 			elif self.can_move_left(event):
-				self.x -= constants.TILE_WIDTH
+				self.x -= 1
 				self.moves += 1
 			elif self.can_move_right(event):
-				self.x += constants.TILE_WIDTH
+				self.x += 1
 				self.moves += 1
 	
 	def can_move_up(self, event):
@@ -35,8 +35,8 @@ class Player(object):
 		return event.key == ord("d")
 	
 	def draw(self, surface):
-		x = self.x + constants.TILE_WIDTH // 2
-		y = self.y + constants.TILE_HEIGHT // 2
+		x = self.x*constants.TILE_WIDTH + constants.TILE_WIDTH // 2
+		y = self.y*constants.TILE_HEIGHT + constants.TILE_HEIGHT // 2
 		
 		pygame.draw.circle(surface, constants.PLAYER_SHADE_COLOR, (x, y + constants.PLAYER_SHADE_OFFSET), constants.PLAYER_RADIUS)
 		pygame.draw.circle(surface, constants.PLAYER_COLOR, (x, y), constants.PLAYER_RADIUS)

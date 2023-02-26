@@ -24,7 +24,7 @@ class LevelBuilder(object):
 		for y in range(0, len(self.data)):
 			for x in range(0, len(self.data[y])):
 				if int(self.data[y][x]) > 0:
-					tiles.append(tile.Tile(constants.TILE_WIDTH*x, constants.TILE_HEIGHT*y))
+					tiles.append(tile.Tile(x, y))
 		
 		return tiles
 	
@@ -34,7 +34,7 @@ class LevelBuilder(object):
 		for y in range(0, len(self.data)):
 			for x in range(0, len(self.data[y])):
 				if int(self.data[y][x]) == 2:
-					boxes_slots.append(box_slot.BoxSlot(constants.TILE_WIDTH*x, constants.TILE_HEIGHT*y))
+					boxes_slots.append(box_slot.BoxSlot(x, y))
 		
 		return boxes_slots
 	
@@ -44,7 +44,7 @@ class LevelBuilder(object):
 		for y in range(0, len(self.data)):
 			for x in range(0, len(self.data[y])):
 				if int(self.data[y][x]) == 3:
-					boxes.append(box.Box(constants.TILE_WIDTH*x, constants.TILE_HEIGHT*y))
+					boxes.append(box.Box(x, y))
 		
 		return boxes
 
@@ -52,6 +52,6 @@ class LevelBuilder(object):
 		for y in range(0, len(self.data)):
 			for x in range(0, len(self.data[y])):
 				if int(self.data[y][x]) == 4:
-					return player.Player(constants.TILE_WIDTH*x, constants.TILE_HEIGHT*y)
+					return player.Player(x, y)
 		
 		return None
