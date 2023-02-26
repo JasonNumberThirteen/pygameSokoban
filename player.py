@@ -47,7 +47,12 @@ class Player(object):
 			if self.x + offset_x == t.x and self.y + offset_y == t.y:
 				for b in level.boxes:
 					if self.x + offset_x == b.x and self.y + offset_y == b.y:
-						return b.can_be_moved(level, offset_x, offset_y)
+						if b.can_be_moved(level, offset_x, offset_y):
+							b.move(level, offset_x, offset_y)
+
+							return True
+						else:
+							return False
 				
 				return True
 		
