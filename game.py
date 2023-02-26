@@ -2,6 +2,7 @@ import level
 import pygame
 import game_ui
 import constants
+import game_manager
 
 class Game(object):
 	def __init__(self, width, height, title="Game Window"):
@@ -10,8 +11,8 @@ class Game(object):
 
 		self.canvas = pygame.display.set_mode((width, height))
 		self.is_running = True
-		self.level = level.Level("level1.csv", 1)
-		self.ui = game_ui.GameUI(self.level.player.moves, self.level)
+		self.gm = game_manager.GameManager()
+		self.ui = game_ui.GameUI(self.gm.level.player.moves, self.gm.level)
 
 		self.loop()
 		pygame.quit()
@@ -28,12 +29,12 @@ class Game(object):
 			if event.type == pygame.QUIT:
 				self.is_running = False
 			
-			self.level.player.detect_input(event, self.level, self.ui)
+			self.gm.level.player.detect_input(event, self.gm.level, self.ui)
 
 	def update(self):
 		pass
 
 	def draw(self):
 		self.canvas.fill(constants.BACKGROUND_COLOR)
-		self.level.draw(self.canvas)
+		self.gm.level.draw(self.canvas)
 		self.ui.draw(self.canvas)
