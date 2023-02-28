@@ -1,12 +1,12 @@
-import text
-
-from constants import (MOVES_TEXT, BOXES_TEXT, GAME_WIDTH)
+import level_counter
+import moves_counter
+import boxes_counter
 
 class GameUI(object):
 	def __init__(self):
-		self.level_counter = text.Text("", 4, 4)
-		self.moves_counter = text.Text("", 4, 4)
-		self.boxes_counter = text.Text("", 4, 4)
+		self.level_counter = level_counter.LevelCounter(1)
+		self.moves_counter = moves_counter.MovesCounter(0)
+		self.boxes_counter = boxes_counter.BoxesCounter(0)
 
 	def draw(self, surface):
 		self.level_counter.draw(surface)
@@ -14,11 +14,7 @@ class GameUI(object):
 		self.boxes_counter.draw(surface)
 	
 	def update_moves_counter(self, moves):
-		self.moves_counter.set_text(MOVES_TEXT + ": " + str(moves))
-
-		self.moves_counter.rect.right = GAME_WIDTH
+		self.moves_counter.update(moves)
 
 	def update_boxes_counter(self, level):
-		self.boxes_counter.set_text(BOXES_TEXT + ": " + str(level.inserted_boxes()) + "/" + str(len(level.boxes_slots)))
-
-		self.boxes_counter.rect = self.boxes_counter.render.get_rect(centerx=GAME_WIDTH // 2)
+		self.boxes_counter.update(level.inserted_boxes())
