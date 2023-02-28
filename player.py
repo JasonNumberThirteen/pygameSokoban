@@ -14,19 +14,23 @@ class Player(shaded_circular_object.ShadedCircularObject):
 		if event.type == pygame.KEYDOWN:
 			if self.can_move_up(event, level):
 				self.y -= 1
-				
+
+				self.move_box(level, 0, -1)
 				self.gm.on_player_move(self)
 			elif self.can_move_down(event, level):
 				self.y += 1
-				
+
+				self.move_box(level, 0, 1)
 				self.gm.on_player_move(self)
 			elif self.can_move_left(event, level):
 				self.x -= 1
-				
+
+				self.move_box(level, -1, 0)
 				self.gm.on_player_move(self)
 			elif self.can_move_right(event, level):
 				self.x += 1
-				
+
+				self.move_box(level, 1, 0)
 				self.gm.on_player_move(self)
 			elif self.can_reset_level(event):
 				self.gm.restart_level()
@@ -48,16 +52,16 @@ class Player(shaded_circular_object.ShadedCircularObject):
 			if self.x + offset_x == t.x and self.y + offset_y == t.y:
 				for b in level.boxes:
 					if self.x + offset_x == b.x and self.y + offset_y == b.y:
-						if b.can_be_moved(level, offset_x, offset_y):
-							b.move(level, offset_x, offset_y)
-
-							return True
-						else:
-							return False
+						return b.can_be_moved(level, offset_x, offset_y)
 				
 				return True
 		
 		return False
+	
+	def move_box(self, level, offset_x, offset_y):
+		for b in level.boxes:
+			if self.x == b.x and self.y == b.y:
+				b.move(level, offset_x, offset_y)
 	
 	def can_reset_level(self, event):
 		return self.moves > 0 and self.pressed_key(event, LEVEL_RESTART_KEY)
