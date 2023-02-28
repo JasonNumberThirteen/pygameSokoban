@@ -1,8 +1,10 @@
 import pygame
 
+from constants import UI_TEXT_FONT
+
 class Text(object):
 	def __init__(self, text, x=0, y=0, color=(255, 255, 255), font_size=32):
-		self.font = pygame.font.SysFont("arial.ttf", font_size)
+		self.font = pygame.font.SysFont(UI_TEXT_FONT, font_size)
 
 		self.set_color(color)
 		self.set_text(text)
