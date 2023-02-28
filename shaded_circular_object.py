@@ -12,7 +12,7 @@ class ShadedCircularObject(circular_object.CircularObject):
 	def draw(self, surface):
 		position = (self.x*TILE_WIDTH + self.offset_x(), self.y*TILE_HEIGHT + self.offset_y() + self.shade_offset())
 		
-		pygame.draw.circle(surface, self.color, position, self.border_radius)
+		pygame.draw.circle(surface, self.shade_color, position, self.border_radius)
 		super().draw(surface)
 	
 	def shade_offset(self):
