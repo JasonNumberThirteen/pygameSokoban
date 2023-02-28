@@ -8,16 +8,14 @@ class GameManager(object):
 	def on_player_move(self, player):
 		player.moves += 1
 
-		self.ui.update_moves_counter()
-		self.ui.update_boxes_counter()
+		self.ui.update()
 
 	def restart_level(self):
 		self.level.build(self, "level1.csv")
 		self.on_level_start()
 	
 	def on_level_start(self):
-		self.ui.update_moves_counter()
-		self.ui.update_boxes_counter()
+		self.ui.update()
 	
 	def completed_level(self):
 		return self.level.inserted_boxes() == len(self.level.boxes_slots)

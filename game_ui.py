@@ -14,8 +14,6 @@ class GameUI(object):
 		self.moves_counter.draw(surface)
 		self.boxes_counter.draw(surface)
 	
-	def update_moves_counter(self):
+	def update(self):
 		self.moves_counter.update(self.gm.level.player.moves)
-
-	def update_boxes_counter(self):
 		self.boxes_counter.update(self.gm.level.inserted_boxes())
