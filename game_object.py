@@ -1,9 +1,6 @@
 import point
 
 class GameObject(point.Point):
-	def draw(self, surface):
-		pass
-
 	def offset_x(self):
 		return 0
 	
