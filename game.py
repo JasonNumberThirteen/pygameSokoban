@@ -11,9 +11,12 @@ class Game(object):
 
 		self.canvas = pygame.display.set_mode((width, height))
 		self.is_running = True
-		self.ui = game_ui.GameUI()
-		self.gm = game_manager.GameManager(self.ui)
+		self.gm = game_manager.GameManager()
+		self.ui = game_ui.GameUI(self.gm)
 
+		self.gm.ui = self.ui
+
+		self.gm.on_level_start()
 		self.loop()
 		pygame.quit()
 

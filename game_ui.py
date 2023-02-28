@@ -3,18 +3,19 @@ import moves_counter
 import boxes_counter
 
 class GameUI(object):
-	def __init__(self):
-		self.level_counter = level_counter.LevelCounter(1)
-		self.moves_counter = moves_counter.MovesCounter(0)
-		self.boxes_counter = boxes_counter.BoxesCounter(0)
+	def __init__(self, gm):
+		self.gm = gm
+		self.level_counter = level_counter.LevelCounter(gm.level.number)
+		self.moves_counter = moves_counter.MovesCounter(gm.level.player.moves)
+		self.boxes_counter = boxes_counter.BoxesCounter(gm.level.inserted_boxes())
 
 	def draw(self, surface):
 		self.level_counter.draw(surface)
 		self.moves_counter.draw(surface)
 		self.boxes_counter.draw(surface)
 	
-	def update_moves_counter(self, moves):
-		self.moves_counter.update(moves)
+	def update_moves_counter(self):
+		self.moves_counter.update(self.gm.level.player.moves)
 
-	def update_boxes_counter(self, level):
-		self.boxes_counter.update(level.inserted_boxes())
+	def update_boxes_counter(self):
+		self.boxes_counter.update(self.gm.level.inserted_boxes())
