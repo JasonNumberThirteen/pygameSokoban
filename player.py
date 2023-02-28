@@ -1,11 +1,11 @@
-import point
 import pygame
+import shaded_circular_object
 
 from constants import (PLAYER_UP_MOVEMENT_KEY, PLAYER_DOWN_MOVEMENT_KEY, PLAYER_LEFT_MOVEMENT_KEY, PLAYER_RIGHT_MOVEMENT_KEY, LEVEL_RESTART_KEY, TILE_WIDTH, TILE_HEIGHT, PLAYER_COLOR, PLAYER_RADIUS, PLAYER_SHADE_COLOR, PLAYER_SHADE_OFFSET)
 
-class Player(point.Point):
+class Player(shaded_circular_object.ShadedCircularObject):
 	def __init__(self, gm, x, y):
-		super().__init__(x, y)
+		super().__init__(x, y, PLAYER_COLOR, PLAYER_RADIUS, PLAYER_SHADE_COLOR)
 		
 		self.gm = gm
 		self.moves = 0
@@ -65,9 +65,11 @@ class Player(point.Point):
 	def pressed_key(self, event, key):
 		return event.key == ord(key)
 	
-	def draw(self, surface):
-		x = self.x*TILE_WIDTH + TILE_WIDTH // 2
-		y = self.y*TILE_HEIGHT + TILE_HEIGHT // 2
-		
-		pygame.draw.circle(surface, PLAYER_SHADE_COLOR, (x, y + PLAYER_SHADE_OFFSET), PLAYER_RADIUS)
-		pygame.draw.circle(surface, PLAYER_COLOR, (x, y), PLAYER_RADIUS)
+	def offset_x(self):
+		return TILE_WIDTH // 2
+	
+	def offset_y(self):
+		return TILE_HEIGHT // 2
+	
+	def shade_offset(self):
+		return PLAYER_SHADE_OFFSET
