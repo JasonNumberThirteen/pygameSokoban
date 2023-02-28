@@ -4,8 +4,8 @@ import circular_object
 from constants import (TILE_WIDTH, TILE_HEIGHT)
 
 class ShadedCircularObject(circular_object.CircularObject):
-	def __init__(self, x, y, width, height, color, border_radius, shade_color):
-		super().__init__(x, y, width, height, color, border_radius)
+	def __init__(self, x, y, color, border_radius, shade_color):
+		super().__init__(x, y, color, border_radius)
 
 		self.shade_color = shade_color
 	
