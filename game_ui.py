@@ -1,12 +1,12 @@
 import text
 
-from constants import (MOVES_TEXT, BOXES_TEXT, UI_TEXT_COLOR, GAME_WIDTH)
+from constants import (MOVES_TEXT, BOXES_TEXT, GAME_WIDTH)
 
 class GameUI(object):
 	def __init__(self):
-		self.level_counter = text.Text("", 4, 4, UI_TEXT_COLOR)
-		self.moves_counter = text.Text("", 4, 4, UI_TEXT_COLOR)
-		self.boxes_counter = text.Text("", 4, 4, UI_TEXT_COLOR)
+		self.level_counter = text.Text("", 4, 4)
+		self.moves_counter = text.Text("", 4, 4)
+		self.boxes_counter = text.Text("", 4, 4)
 
 	def draw(self, surface):
 		self.level_counter.draw(surface)

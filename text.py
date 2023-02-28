@@ -1,9 +1,9 @@
 import pygame
 
-from constants import UI_TEXT_FONT
+from constants import (UI_TEXT_FONT, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
 
 class Text(object):
-	def __init__(self, text, x=0, y=0, color=(255, 255, 255), font_size=32):
+	def __init__(self, text, x=0, y=0, color=UI_TEXT_COLOR, font_size=UI_TEXT_FONT_SIZE):
 		self.font = pygame.font.SysFont(UI_TEXT_FONT, font_size)
 
 		self.set_color(color)
