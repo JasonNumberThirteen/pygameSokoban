@@ -1,9 +1,7 @@
 import level_builder
 
 class Level(object):
-	def __init__(self, gm, data, number):
-		self.number = number
-		
+	def __init__(self, gm, data):
 		self.build(gm, data)
 	
 	def build(self, gm, data):

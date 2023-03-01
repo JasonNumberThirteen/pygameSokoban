@@ -6,7 +6,7 @@ import level_complete_text
 class GameUI(object):
 	def __init__(self, gm):
 		self.gm = gm
-		self.level_counter = level_counter.LevelCounter(gm.level.number)
+		self.level_counter = level_counter.LevelCounter(gm.level_number)
 		self.moves_counter = moves_counter.MovesCounter(gm.level.player.moves)
 		self.boxes_counter = boxes_counter.BoxesCounter(gm.level)
 		self.level_complete_text = level_complete_text.LevelCompleteText(gm)

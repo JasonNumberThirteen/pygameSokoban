@@ -41,3 +41,5 @@ UI_TEXT_FONT_SIZE = 32
 LEVEL_TEXT = "LEVEL"
 MOVES_TEXT = "Moves"
 BOXES_TEXT = "Boxes"
+
+LEVEL_FILES = ("level1.csv", "level2.csv")

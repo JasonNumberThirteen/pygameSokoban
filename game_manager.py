@@ -1,8 +1,11 @@
 import level
 
+from constants import LEVEL_FILES
+
 class GameManager(object):
 	def __init__(self):
-		self.level = level.Level(self, "level1.csv", 1)
+		self.level_number = 1
+		self.level = level.Level(self, LEVEL_FILES[self.level_number - 1])
 		self.ui = None
 
 	def on_player_move(self, player):
@@ -11,7 +14,7 @@ class GameManager(object):
 		self.ui.update()
 
 	def restart_level(self):
-		self.level.build(self, "level1.csv")
+		self.level.build(self, LEVEL_FILES[self.level_number - 1])
 		self.on_level_start()
 	
 	def on_level_start(self):
