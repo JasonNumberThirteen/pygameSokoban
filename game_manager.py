@@ -20,5 +20,9 @@ class GameManager(object):
 	def on_level_start(self):
 		self.ui.update()
 	
+	def advance_to_next_level(self):
+		self.level_number += 1
+		self.restart_level()
+	
 	def completed_level(self):
 		return self.level.inserted_boxes() == len(self.level.boxes_slots)

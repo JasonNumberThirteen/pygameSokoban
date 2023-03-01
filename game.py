@@ -2,7 +2,7 @@ import pygame
 import game_ui
 import game_manager
 
-from constants import BACKGROUND_COLOR
+from constants import (BACKGROUND_COLOR, LEVEL_FILES)
 
 class Game(object):
 	def __init__(self, width, height, title="Game Window"):
@@ -33,8 +33,11 @@ class Game(object):
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				self.is_running = False
-			
-			self.gm.level.player.detect_input(event, self.gm.level)
+
+			if not self.gm.completed_level():
+				self.gm.level.player.detect_input(event, self.gm.level)
+			elif self.gm.level_number < len(LEVEL_FILES) and event.type == pygame.KEYDOWN:
+				self.gm.advance_to_next_level()
 
 	def update(self):
 		pass
