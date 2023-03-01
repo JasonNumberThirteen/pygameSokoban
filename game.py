@@ -36,7 +36,7 @@ class Game(object):
 
 			if not self.gm.completed_level():
 				self.gm.level.player.detect_input(event, self.gm.level)
-			elif self.gm.level_number < len(LEVEL_FILES) and event.type == pygame.KEYDOWN:
+			elif not self.gm.it_is_the_last_level() and event.type == pygame.KEYDOWN:
 				self.gm.advance_to_next_level()
 
 	def update(self):

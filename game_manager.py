@@ -24,5 +24,8 @@ class GameManager(object):
 		self.level_number += 1
 		self.restart_level()
 	
+	def it_is_the_last_level(self):
+		return self.level_number == len(LEVEL_FILES)
+	
 	def completed_level(self):
 		return self.level.inserted_boxes() == len(self.level.boxes_slots)

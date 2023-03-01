@@ -10,5 +10,5 @@ class PressAnyKeyText(text.Text):
 		self.gm = gm
 	
 	def draw(self, surface):
-		if self.gm.completed_level():
+		if self.gm.completed_level() and not self.gm.it_is_the_last_level():
 			super().draw(surface)
