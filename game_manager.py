@@ -18,7 +18,7 @@ class GameManager(object):
 		self.on_level_start()
 	
 	def on_level_start(self):
-		self.ui.update()
+		self.ui.update_on_start()
 	
 	def advance_to_next_level(self):
 		self.level_number += 1
