@@ -6,7 +6,7 @@ class PressAnyKeyText(text.Text):
 	def __init__(self, gm):
 		super().__init__("Press any key to continue", 0, 0, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
 
-		self.rect = self.render.get_rect(center=(GAME_WIDTH // 2, GAME_HEIGHT))
+		self.rect = self.render.get_rect(centerx=GAME_WIDTH // 2, bottom=GAME_HEIGHT)
 		self.gm = gm
 	
 	def draw(self, surface):
