@@ -2,7 +2,7 @@ import pygame
 import game_ui
 import game_manager
 
-from constants import (BACKGROUND_COLOR, LEVEL_FILES)
+from constants import BACKGROUND_COLOR
 
 class Game(object):
 	def __init__(self, width, height, title="Game Window"):
