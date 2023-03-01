@@ -27,3 +27,6 @@ class GameUI(object):
 	def update(self):
 		self.moves_counter.update(self.gm.level.player.moves)
 		self.boxes_counter.update(self.gm.level)
+	
+	def on_level_complete(self):
+		self.level_complete_text.on_level_complete()

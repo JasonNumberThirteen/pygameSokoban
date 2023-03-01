@@ -12,3 +12,9 @@ class LevelCompleteText(text.Text):
 	def draw(self, surface):
 		if self.gm.completed_level():
 			super().draw(surface)
+	
+	def on_level_complete(self):
+		if self.gm.it_is_the_last_level():
+			self.set_text("YOU WIN!!!")
+
+			self.rect = self.render.get_rect(center=(GAME_WIDTH // 2, GAME_HEIGHT // 2))

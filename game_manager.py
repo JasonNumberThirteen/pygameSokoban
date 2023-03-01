@@ -13,12 +13,18 @@ class GameManager(object):
 
 		self.ui.update()
 
+		if self.completed_level():
+			self.on_level_complete()
+
 	def restart_level(self):
 		self.level.build(self, LEVEL_FILES[self.level_number - 1])
 		self.on_level_start()
 	
 	def on_level_start(self):
 		self.ui.update_on_start()
+	
+	def on_level_complete(self):
+		self.ui.on_level_complete()
 	
 	def advance_to_next_level(self):
 		self.level_number += 1
