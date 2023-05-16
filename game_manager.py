@@ -1,11 +1,11 @@
 import level
 
-from constants import LEVEL_FILES
+from constants import (LEVEL_FILES_FOLDER, LEVEL_FILES)
 
 class GameManager(object):
 	def __init__(self):
 		self.level_number = 1
-		self.level = level.Level(self, LEVEL_FILES[self.level_number - 1])
+		self.level = level.Level(self, self.current_level_data())
 		self.ui = None
 
 	def on_player_move(self, player):
@@ -17,7 +17,7 @@ class GameManager(object):
 			self.on_level_complete()
 
 	def restart_level(self):
-		self.level.build(self, LEVEL_FILES[self.level_number - 1])
+		self.level.build(self, self.current_level_data())
 		self.on_level_start()
 	
 	def on_level_start(self):
@@ -35,3 +35,6 @@ class GameManager(object):
 	
 	def completed_level(self):
 		return self.level.inserted_boxes() == len(self.level.boxes_slots)
+	
+	def current_level_data(self):
+		return LEVEL_FILES_FOLDER + "/" + LEVEL_FILES[self.level_number - 1]

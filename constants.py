@@ -42,4 +42,5 @@ LEVEL_TEXT = "LEVEL"
 MOVES_TEXT = "Moves"
 BOXES_TEXT = "Boxes"
 
-LEVEL_FILES = ("levels/level1.csv", "levels/level2.csv")
+LEVEL_FILES = ("level1.csv", "level2.csv")
+LEVEL_FILES_FOLDER = "levels"
