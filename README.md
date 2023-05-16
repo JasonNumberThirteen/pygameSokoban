@@ -24,6 +24,7 @@
 - Boxes pushing system
 - Collision detection (tile is walkable & box can be pushed)
 - Level, moves & boxes counters
+- Restarting level by pressing specific key
 - Transfer to the next level when completed the current one
 - Graphics drawn without any sprites
 - Loading levels data from CSV files
@@ -31,7 +32,13 @@
 - Adjustable plenty of values in single script
 
 ## Usage
-- Press W / S / A / D to move the player (the green filled circle)
+- Press W / S / A / D keys to move the player (the green filled circle)
+- Press the R key to restart the level
+
+## Screenshots
+!["Sokoban"](./screenshots/1.png?raw=true)
+!["Sokoban"](./screenshots/2.png?raw=true)
+!["Sokoban"](./screenshots/3.png?raw=true)
 
 ## Credits
 - This project was made by [Jason](https://jasonxiii.pl "Jason. Cała informatyka w jednym miejscu! Oficjalna strona internetowa! Setki artykułów na różne tematy! Wszystko stworzone przez jedną osobę!")
