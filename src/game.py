@@ -26,7 +26,6 @@ class Game(object):
 	def loop(self):
 		while self.is_running:
 			self.detect_input()
-			self.update()
 			self.draw()
 			pygame.display.update()
 
@@ -45,9 +44,6 @@ class Game(object):
 		elif not gm.it_is_the_last_level() and event.type == pygame.KEYDOWN:
 			gm.advance_to_next_level()
 			self.ui.on_level_start()
-
-	def update(self):
-		pass
 
 	def draw(self):
 		self.canvas.fill(BACKGROUND_COLOR)
