@@ -41,7 +41,7 @@ class Box(shaded_rectangular_object.ShadedRectangularObject):
 	
 	def check_if_it_is_in_slot(self, level):
 		for bs in level.boxes_slots:
-			if self.x == bs.x and self.y == bs.y and not self.is_in_slot:
+			if self.has_the_same_position(bs) and not self.is_in_slot:
 				self.is_in_slot = True
 
 				break
