@@ -10,9 +10,9 @@ class Text(object):
 		self.set_text(text)
 		self.set_position(x, y)
 	
-	def set_text(self, text):
+	def set_text(self, text, **kwargs):
 		self.render = self.font.render(text, True, self.color)
-		self.rect = self.render.get_rect()
+		self.rect = self.render.get_rect(**kwargs)
 	
 	def set_position(self, x, y):
 		self.rect.x = x

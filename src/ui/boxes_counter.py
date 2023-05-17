@@ -7,9 +7,7 @@ class BoxesCounter(text.Text):
 		super().__init__(self.text_string(level), 4, 4)
 	
 	def update(self, level):
-		self.set_text(self.text_string(level))
-
-		self.rect = self.render.get_rect(centerx=GAME_WIDTH // 2)
+		self.set_text(self.text_string(level), centerx=GAME_WIDTH // 2)
 	
 	def text_string(self, level):
 		inserted_boxes = str(level.inserted_boxes())
