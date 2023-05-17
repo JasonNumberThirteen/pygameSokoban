@@ -1,3 +1,4 @@
+import src.game_objects.point as point
 import src.game_objects.shaded_rectangular_object as shaded_rectangular_object
 
 from src.constants import (TILE_WIDTH, TILE_HEIGHT, BOX_WIDTH, BOX_HEIGHT, BOX_COLOR, BOX_BORDER_RADIUS, BOX_SHADE_COLOR, BOX_SHADE_OFFSET)
@@ -18,6 +19,10 @@ class Box(shaded_rectangular_object.ShadedRectangularObject):
 		return BOX_SHADE_OFFSET
 	
 	def can_be_moved(self, level, offset_x, offset_y):
+		for b in level.boxes:
+			if self.x + offset_x == b.x and self.y + offset_y == b.y:
+				return False
+		
 		for t in level.tiles:
 			if self.x + offset_x == t.x and self.y + offset_y == t.y:
 				return True
