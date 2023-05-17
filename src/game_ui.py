@@ -14,11 +14,10 @@ class GameUI(object):
 		self.press_any_key_text = press_any_key_text.PressAnyKeyText(gm)
 
 	def draw(self, surface):
-		self.level_counter.draw(surface)
-		self.moves_counter.draw(surface)
-		self.boxes_counter.draw(surface)
-		self.level_complete_text.draw(surface)
-		self.press_any_key_text.draw(surface)
+		drawables = (self.level_counter, self.moves_counter, self.boxes_counter, self.level_complete_text, self.press_any_key_text)
+
+		for d in drawables:
+			d.draw(surface)
 	
 	def update_on_start(self):
 		self.level_counter.update(self.gm.level_number)
