@@ -9,7 +9,8 @@ class ShadedRectangularObject(rectangular_object.RectangularObject):
 	
 	def draw(self, surface):
 		position = self.position_in_tiles()
-		rect = pygame.Rect(position[0], position[1] + self.shade_offset(), self.width, self.height)
+		position_y = position[1] + self.shade_offset()
+		rect = pygame.Rect(position[0], position_y, self.width, self.height)
 		
 		pygame.draw.rect(surface, self.shade_color, rect, 0, self.border_radius)
 		super().draw(surface)

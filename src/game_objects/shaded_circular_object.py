@@ -10,9 +10,11 @@ class ShadedCircularObject(circular_object.CircularObject):
 	
 	def draw(self, surface):
 		position = self.position_in_tiles()
+		position_y = position[1] + self.shade_offset()
+		border_radius = self.border_radius - 1
 		
-		pygame.gfxdraw.aacircle(surface, position[0], position[1] + self.shade_offset(), self.border_radius - 1, self.shade_color)
-		pygame.gfxdraw.filled_circle(surface, position[0], position[1] + self.shade_offset(), self.border_radius - 1, self.shade_color)
+		pygame.gfxdraw.aacircle(surface, position[0], position_y, border_radius, self.shade_color)
+		pygame.gfxdraw.filled_circle(surface, position[0], position_y, border_radius, self.shade_color)
 		super().draw(surface)
 	
 	def shade_offset(self):
