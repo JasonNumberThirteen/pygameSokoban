@@ -4,7 +4,10 @@ from src.constants import LEVEL_TEXT
 
 class LevelCounter(text.Text):
 	def __init__(self, level_number):
-		super().__init__(LEVEL_TEXT + " " + str(level_number), 4, 4)
+		super().__init__(self.text_string(level_number), 4, 4)
 	
-	def update(self, value):
-		self.set_text(LEVEL_TEXT + " " + str(value))
+	def update(self, level_number):
+		self.set_text(self.text_string(level_number))
+	
+	def text_string(self, level_number):
+		return LEVEL_TEXT + " " + str(level_number)
