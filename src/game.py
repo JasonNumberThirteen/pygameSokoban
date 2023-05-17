@@ -13,14 +13,17 @@ class Game(object):
 		self.is_running = True
 		self.gm = game_manager.GameManager()
 		self.ui = game_ui.GameUI(self.gm)
-
 		self.gm.ui = self.ui
-		game_icon = pygame.image.load("gameIcon.png")
-
-		pygame.display.set_icon(game_icon)
+		
+		self.set_icon()
 		self.gm.on_level_start()
 		self.loop()
 		pygame.quit()
+	
+	def set_icon(self):
+		game_icon = pygame.image.load("gameIcon.png")
+
+		pygame.display.set_icon(game_icon)
 
 	def loop(self):
 		while self.is_running:
