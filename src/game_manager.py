@@ -6,25 +6,12 @@ class GameManager(object):
 	def __init__(self):
 		self.level_number = 1
 		self.level = level.Level(self, self.current_level_data())
-		self.ui = None
 
 	def on_player_move(self, player):
 		player.moves += 1
 
-		self.ui.update()
-
-		if self.completed_level():
-			self.on_level_complete()
-
 	def restart_level(self):
 		self.level.build(self, self.current_level_data())
-		self.on_level_start()
-	
-	def on_level_start(self):
-		self.ui.update_on_start()
-	
-	def on_level_complete(self):
-		self.ui.on_level_complete()
 	
 	def advance_to_next_level(self):
 		self.level_number += 1

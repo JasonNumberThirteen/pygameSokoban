@@ -11,30 +11,35 @@ class Player(shaded_circular_object.ShadedCircularObject):
 		self.gm = gm
 		self.moves = 0
 	
-	def detect_input(self, event, level):
+	def detect_input(self, event, level, ui):
 		if event.type == pygame.KEYDOWN:
 			if self.can_move_up(event, level):
 				self.y -= 1
 
 				self.move_box(level, 0, -1)
 				self.gm.on_player_move(self)
+				ui.on_player_move()
 			elif self.can_move_down(event, level):
 				self.y += 1
 
 				self.move_box(level, 0, 1)
 				self.gm.on_player_move(self)
+				ui.on_player_move()
 			elif self.can_move_left(event, level):
 				self.x -= 1
 
 				self.move_box(level, -1, 0)
 				self.gm.on_player_move(self)
+				ui.on_player_move()
 			elif self.can_move_right(event, level):
 				self.x += 1
 
 				self.move_box(level, 1, 0)
 				self.gm.on_player_move(self)
+				ui.on_player_move()
 			elif self.can_reset_level(event):
 				self.gm.restart_level()
+				ui.on_level_start()
 	
 	def can_move_up(self, event, level):
 		return self.can_move_to(level, 0, -1) and self.pressed_key(event, PLAYER_UP_MOVEMENT_KEY)

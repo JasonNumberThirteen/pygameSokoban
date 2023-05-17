@@ -19,13 +19,19 @@ class GameUI(object):
 		for d in drawables:
 			d.draw(surface)
 	
-	def update_on_start(self):
-		self.level_counter.update(self.gm.level_number)
+	def on_player_move(self):
 		self.update()
+
+		if self.gm.completed_level():
+			self.on_level_complete()
 	
 	def update(self):
 		self.moves_counter.update(self.gm.level.player.moves)
 		self.boxes_counter.update(self.gm.level)
+	
+	def on_level_start(self):
+		self.level_counter.update(self.gm.level_number)
+		self.update()
 	
 	def on_level_complete(self):
 		self.level_complete_text.on_level_complete()
