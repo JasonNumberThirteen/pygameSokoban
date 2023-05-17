@@ -1,6 +1,6 @@
 import pygame
 import pygame.gfxdraw
-import game_object
+import game_objects.game_object as game_object
 
 from constants import (TILE_WIDTH, TILE_HEIGHT)
 

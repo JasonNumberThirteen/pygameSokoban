@@ -1,4 +1,4 @@
-import point
+import game_objects.point as point
 
 class GameObject(point.Point):
 	def offset_x(self):

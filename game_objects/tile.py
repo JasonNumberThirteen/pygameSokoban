@@ -1,4 +1,4 @@
-import shaded_rectangular_object
+import game_objects.shaded_rectangular_object as shaded_rectangular_object
 
 from constants import (TILE_WIDTH, TILE_HEIGHT, TILE_OFFSET, TILE_COLOR, TILE_BORDER_RADIUS, TILE_SHADE_COLOR, TILE_SHADE_OFFSET)
 

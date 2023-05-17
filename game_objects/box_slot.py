@@ -1,4 +1,4 @@
-import rectangular_object
+import game_objects.rectangular_object as rectangular_object
 
 from constants import (TILE_WIDTH, TILE_HEIGHT, BOX_SLOT_WIDTH, BOX_SLOT_HEIGHT, BOX_SLOT_COLOR, BOX_SLOT_FRAME_WIDTH, BOX_SLOT_BORDER_RADIUS)
 

@@ -1,6 +1,6 @@
 import pygame
 import pygame.gfxdraw
-import circular_object
+import game_objects.circular_object as circular_object
 
 from constants import (TILE_WIDTH, TILE_HEIGHT)
 

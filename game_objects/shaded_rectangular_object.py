@@ -1,5 +1,5 @@
 import pygame
-import rectangular_object
+import game_objects.rectangular_object as rectangular_object
 
 from constants import (TILE_WIDTH, TILE_HEIGHT)
 

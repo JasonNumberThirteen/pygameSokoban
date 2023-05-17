@@ -1,7 +1,7 @@
-import box
-import tile
-import player
-import box_slot
+import game_objects.box as box
+import game_objects.tile as tile
+import game_objects.player as player
+import game_objects.box_slot as box_slot
 
 class LevelBuilder(object):
 	def __init__(self, filename):
