@@ -35,6 +35,21 @@ class Level(object):
 				return True
 		
 		return False
+
+	def tile_is_free_for_box(self, current_position, offset):
+		for b in self.boxes:
+			target_position = point.Point(current_position.x + offset.x, current_position.y + offset.y)
+
+			if target_position.has_the_same_position(b):
+				return False
+		
+		for t in self.tiles:
+			target_position = point.Point(current_position.x + offset.x, current_position.y + offset.y)
+
+			if target_position.has_the_same_position(t):
+				return True
+		
+		return False
 	
 	def inserted_boxes(self):
 		count = 0

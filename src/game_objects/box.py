@@ -19,19 +19,7 @@ class Box(shaded_rectangular_object.ShadedRectangularObject):
 		return BOX_SHADE_OFFSET
 	
 	def can_be_moved(self, level, offset_x, offset_y):
-		for b in level.boxes:
-			target_position = point.Point(self.x + offset_x, self.y + offset_y)
-
-			if target_position.has_the_same_position(b):
-				return False
-		
-		for t in level.tiles:
-			target_position = point.Point(self.x + offset_x, self.y + offset_y)
-
-			if target_position.has_the_same_position(t):
-				return True
-		
-		return False
+		return level.tile_is_free_for_box(self, point.Point(offset_x, offset_y))
 
 	def move(self, level, offset_x, offset_y):
 		self.x += offset_x
