@@ -1,4 +1,4 @@
-import text
+import ui.text as text
 
 from constants import LEVEL_TEXT
 

@@ -1,8 +1,8 @@
-import level_counter
-import moves_counter
-import boxes_counter
-import press_any_key_text
-import level_complete_text
+import ui.level_counter as level_counter
+import ui.moves_counter as moves_counter
+import ui.boxes_counter as boxes_counter
+import ui.press_any_key_text as press_any_key_text
+import ui.level_complete_text as level_complete_text
 
 class GameUI(object):
 	def __init__(self, gm):

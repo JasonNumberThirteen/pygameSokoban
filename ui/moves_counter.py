@@ -1,4 +1,4 @@
-import text
+import ui.text as text
 
 from constants import (GAME_WIDTH, MOVES_TEXT)
 
