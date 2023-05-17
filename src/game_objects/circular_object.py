@@ -13,6 +13,7 @@ class CircularObject(game_object.GameObject):
 	
 	def draw(self, surface):
 		position = (self.x*TILE_WIDTH + self.offset_x(), self.y*TILE_HEIGHT + self.offset_y())
+		border_radius = self.border_radius - 1
 		
-		pygame.gfxdraw.aacircle(surface, position[0], position[1], self.border_radius - 1, self.color)
-		pygame.gfxdraw.filled_circle(surface, position[0], position[1], self.border_radius - 1, self.color)
+		pygame.gfxdraw.aacircle(surface, position[0], position[1], border_radius, self.color)
+		pygame.gfxdraw.filled_circle(surface, position[0], position[1], border_radius, self.color)
