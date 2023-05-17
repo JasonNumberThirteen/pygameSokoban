@@ -34,12 +34,17 @@ class Game(object):
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				self.is_running = False
-
-			if not self.gm.completed_level():
-				self.gm.level.player.detect_input(event, self.gm.level, self.ui)
-			elif not self.gm.it_is_the_last_level() and event.type == pygame.KEYDOWN:
-				self.gm.advance_to_next_level()
-				self.ui.on_level_start()
+			
+			self.detect_input_during_game(event)
+	
+	def detect_input_during_game(self, event):
+		gm = self.gm
+		
+		if not gm.completed_level():
+			gm.level.player.detect_input(event, gm.level, self.ui)
+		elif not gm.it_is_the_last_level() and event.type == pygame.KEYDOWN:
+			gm.advance_to_next_level()
+			self.ui.on_level_start()
 
 	def update(self):
 		pass
