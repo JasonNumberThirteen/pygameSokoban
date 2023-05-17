@@ -28,24 +28,10 @@ class LevelBuilder(object):
 		return tiles
 	
 	def detected_boxes_slots(self):
-		boxes_slots = []
-		
-		for y in range(0, len(self.data)):
-			for x in range(0, len(self.data[y])):
-				if int(self.data[y][x]) == 2:
-					boxes_slots.append(box_slot.BoxSlot(x, y))
-		
-		return boxes_slots
+		return self.detected_objects(box_slot.BoxSlot, 2)
 	
 	def detected_boxes(self):
-		boxes = []
-		
-		for y in range(0, len(self.data)):
-			for x in range(0, len(self.data[y])):
-				if int(self.data[y][x]) == 3:
-					boxes.append(box.Box(x, y))
-		
-		return boxes
+		return self.detected_objects(box.Box, 3)
 
 	def detected_player(self, gm):
 		for y in range(0, len(self.data)):
@@ -54,3 +40,13 @@ class LevelBuilder(object):
 					return player.Player(gm, x, y)
 		
 		return None
+	
+	def detected_objects(self, object, index):
+		objects = []
+		
+		for y in range(0, len(self.data)):
+			for x in range(0, len(self.data[y])):
+				if int(self.data[y][x]) == index:
+					objects.append(object(x, y))
+		
+		return objects
