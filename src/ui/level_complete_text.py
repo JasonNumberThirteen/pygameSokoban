@@ -4,9 +4,8 @@ from src.constants import (GAME_WIDTH, GAME_HEIGHT, UI_TEXT_COLOR, UI_TEXT_FONT_
 
 class LevelCompleteText(text.Text):
 	def __init__(self, gm):
-		super().__init__("LEVEL COMPLETE", 0, 0, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
+		super().__init__("", 0, 0, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
 
-		self.rect = self.render.get_rect(center=(GAME_WIDTH // 2, GAME_HEIGHT // 2))
 		self.gm = gm
 	
 	def draw(self, surface):
@@ -14,5 +13,9 @@ class LevelCompleteText(text.Text):
 			super().draw(surface)
 	
 	def on_level_complete(self):
+		text = "LEVEL COMPLETE"
+		
 		if self.gm.it_is_the_last_level():
-			self.set_text("YOU WIN!!!", center=(GAME_WIDTH // 2, GAME_HEIGHT // 2))
+			text = "YOU WIN!!!"
+		
+		self.set_text(text, center=(GAME_WIDTH // 2, GAME_HEIGHT // 2))
