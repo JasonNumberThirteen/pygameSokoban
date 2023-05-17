@@ -18,20 +18,13 @@ class LevelBuilder(object):
 			self.data = data
 	
 	def detected_tiles(self):
-		tiles = []
-		
-		for y in range(0, len(self.data)):
-			for x in range(0, len(self.data[y])):
-				if int(self.data[y][x]) > 0:
-					tiles.append(tile.Tile(x, y))
-		
-		return tiles
+		return self.detected_objects(tile.Tile, lambda x: x > 0)
 	
 	def detected_boxes_slots(self):
-		return self.detected_objects(box_slot.BoxSlot, 2)
+		return self.detected_objects(box_slot.BoxSlot, lambda x: x == 2)
 	
 	def detected_boxes(self):
-		return self.detected_objects(box.Box, 3)
+		return self.detected_objects(box.Box, lambda x: x == 3)
 
 	def detected_player(self, gm):
 		for y in range(0, len(self.data)):
@@ -41,12 +34,12 @@ class LevelBuilder(object):
 		
 		return None
 	
-	def detected_objects(self, object, index):
+	def detected_objects(self, object, index_is_correct):
 		objects = []
 		
 		for y in range(0, len(self.data)):
 			for x in range(0, len(self.data[y])):
-				if int(self.data[y][x]) == index:
+				if index_is_correct(int(self.data[y][x])):
 					objects.append(object(x, y))
 		
 		return objects
