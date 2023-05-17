@@ -54,17 +54,7 @@ class Player(shaded_circular_object.ShadedCircularObject):
 		return self.pressed_key(event, PLAYER_RIGHT_MOVEMENT_KEY) and self.can_move_to(level, 1, 0)
 	
 	def can_move_to(self, level, offset_x, offset_y):
-		for t in level.tiles:
-			target_position = point.Point(self.x + offset_x, self.y + offset_y)
-			
-			if target_position.has_the_same_position(t):
-				for b in level.boxes:
-					if target_position.has_the_same_position(b):
-						return b.can_be_moved(level, offset_x, offset_y)
-				
-				return True
-		
-		return False
+		return level.tile_is_walkable(self, point.Point(offset_x, offset_y))
 	
 	def move_box(self, level, offset_x, offset_y):
 		for b in level.boxes:
