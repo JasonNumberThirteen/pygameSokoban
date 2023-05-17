@@ -13,6 +13,8 @@ class GameUI(object):
 		self.level_complete_text = level_complete_text.LevelCompleteText(gm)
 		self.press_any_key_text = press_any_key_text.PressAnyKeyText(gm)
 
+		self.on_level_start()
+
 	def draw(self, surface):
 		drawables = (self.level_counter, self.moves_counter, self.boxes_counter, self.level_complete_text, self.press_any_key_text)
 

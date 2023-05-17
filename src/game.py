@@ -15,7 +15,6 @@ class Game(object):
 		self.ui = game_ui.GameUI(self.gm)
 		
 		self.set_icon()
-		self.ui.on_level_start()
 		self.loop()
 		pygame.quit()
 	
