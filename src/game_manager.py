@@ -1,6 +1,6 @@
-import level
+import src.level as level
 
-from constants import (LEVEL_FILES_FOLDER, LEVEL_FILES)
+from src.constants import (LEVEL_FILES_FOLDER, LEVEL_FILES)
 
 class GameManager(object):
 	def __init__(self):

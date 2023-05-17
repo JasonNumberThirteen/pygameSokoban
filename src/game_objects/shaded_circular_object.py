@@ -1,8 +1,8 @@
 import pygame
 import pygame.gfxdraw
-import game_objects.circular_object as circular_object
+import src.game_objects.circular_object as circular_object
 
-from constants import (TILE_WIDTH, TILE_HEIGHT)
+from src.constants import (TILE_WIDTH, TILE_HEIGHT)
 
 class ShadedCircularObject(circular_object.CircularObject):
 	def __init__(self, x, y, color, border_radius, shade_color):

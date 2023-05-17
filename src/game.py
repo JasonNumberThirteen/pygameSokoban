@@ -1,8 +1,8 @@
 import pygame
-import game_ui
-import game_manager
+import src.game_ui as game_ui
+import src.game_manager as game_manager
 
-from constants import BACKGROUND_COLOR
+from src.constants import BACKGROUND_COLOR
 
 class Game(object):
 	def __init__(self, width, height, title="Game Window"):

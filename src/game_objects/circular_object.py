@@ -1,8 +1,8 @@
 import pygame
 import pygame.gfxdraw
-import game_objects.game_object as game_object
+import src.game_objects.game_object as game_object
 
-from constants import (TILE_WIDTH, TILE_HEIGHT)
+from src.constants import (TILE_WIDTH, TILE_HEIGHT)
 
 class CircularObject(game_object.GameObject):
 	def __init__(self, x, y, color, border_radius):

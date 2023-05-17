@@ -1,6 +1,6 @@
 import pygame
 
-from constants import (UI_TEXT_FONT, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
+from src.constants import (UI_TEXT_FONT, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
 
 class Text(object):
 	def __init__(self, text, x=0, y=0, color=UI_TEXT_COLOR, font_size=UI_TEXT_FONT_SIZE):

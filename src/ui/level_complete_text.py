@@ -1,6 +1,6 @@
-import ui.text as text
+import src.ui.text as text
 
-from constants import (GAME_WIDTH, GAME_HEIGHT, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
+from src.constants import (GAME_WIDTH, GAME_HEIGHT, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
 
 class LevelCompleteText(text.Text):
 	def __init__(self, gm):

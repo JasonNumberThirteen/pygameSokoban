@@ -1,7 +1,7 @@
 import pygame
-import game_objects.rectangular_object as rectangular_object
+import src.game_objects.rectangular_object as rectangular_object
 
-from constants import (TILE_WIDTH, TILE_HEIGHT)
+from src.constants import (TILE_WIDTH, TILE_HEIGHT)
 
 class ShadedRectangularObject(rectangular_object.RectangularObject):
 	def __init__(self, x, y, width, height, color, frame_width, border_radius, shade_color):

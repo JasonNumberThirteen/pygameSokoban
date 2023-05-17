@@ -1,4 +1,4 @@
-import level_builder
+import src.level_builder as level_builder
 
 class Level(object):
 	def __init__(self, gm, data):

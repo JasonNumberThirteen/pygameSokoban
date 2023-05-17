@@ -1,6 +1,6 @@
-import ui.text as text
+import src.ui.text as text
 
-from constants import LEVEL_TEXT
+from src.constants import LEVEL_TEXT
 
 class LevelCounter(text.Text):
 	def __init__(self, level_number):

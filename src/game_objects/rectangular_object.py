@@ -1,7 +1,7 @@
 import pygame
-import game_objects.game_object as game_object
+import src.game_objects.game_object as game_object
 
-from constants import (TILE_WIDTH, TILE_HEIGHT)
+from src.constants import (TILE_WIDTH, TILE_HEIGHT)
 
 class RectangularObject(game_object.GameObject):
 	def __init__(self, x, y, width, height, color, frame_width, border_radius):

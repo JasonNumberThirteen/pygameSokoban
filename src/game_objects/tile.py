@@ -1,6 +1,6 @@
-import game_objects.shaded_rectangular_object as shaded_rectangular_object
+import src.game_objects.shaded_rectangular_object as shaded_rectangular_object
 
-from constants import (TILE_WIDTH, TILE_HEIGHT, TILE_OFFSET, TILE_COLOR, TILE_BORDER_RADIUS, TILE_SHADE_COLOR, TILE_SHADE_OFFSET)
+from src.constants import (TILE_WIDTH, TILE_HEIGHT, TILE_OFFSET, TILE_COLOR, TILE_BORDER_RADIUS, TILE_SHADE_COLOR, TILE_SHADE_OFFSET)
 
 class Tile(shaded_rectangular_object.ShadedRectangularObject):
 	def __init__(self, x, y):

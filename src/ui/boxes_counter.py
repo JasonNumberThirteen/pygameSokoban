@@ -1,6 +1,6 @@
-import ui.text as text
+import src.ui.text as text
 
-from constants import (GAME_WIDTH, BOXES_TEXT)
+from src.constants import (GAME_WIDTH, BOXES_TEXT)
 
 class BoxesCounter(text.Text):
 	def __init__(self, level):

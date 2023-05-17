@@ -1,6 +1,6 @@
-import ui.text as text
+import src.ui.text as text
 
-from constants import (GAME_WIDTH, MOVES_TEXT)
+from src.constants import (GAME_WIDTH, MOVES_TEXT)
 
 class MovesCounter(text.Text):
 	def __init__(self, moves):
