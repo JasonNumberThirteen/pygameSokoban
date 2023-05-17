@@ -4,9 +4,12 @@ from src.constants import (GAME_WIDTH, MOVES_TEXT)
 
 class MovesCounter(text.Text):
 	def __init__(self, moves):
-		super().__init__(MOVES_TEXT + ": " + str(moves), 4, 4)
+		super().__init__(self.text_string(moves), 4, 4)
 	
-	def update(self, value):
-		self.set_text(MOVES_TEXT + ": " + str(value))
-
+	def update(self, moves):
+		self.set_text(self.text_string(moves))
+		
 		self.rect.right = GAME_WIDTH
+	
+	def text_string(self, moves):
+		return MOVES_TEXT + ": " + str(moves)
