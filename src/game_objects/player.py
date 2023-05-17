@@ -1,4 +1,5 @@
 import pygame
+import src.game_objects.point as point
 import src.game_objects.shaded_circular_object as shaded_circular_object
 
 from src.constants import (PLAYER_UP_MOVEMENT_KEY, PLAYER_DOWN_MOVEMENT_KEY, PLAYER_LEFT_MOVEMENT_KEY, PLAYER_RIGHT_MOVEMENT_KEY, LEVEL_RESTART_KEY, TILE_WIDTH, TILE_HEIGHT, PLAYER_COLOR, PLAYER_RADIUS, PLAYER_SHADE_COLOR, PLAYER_SHADE_OFFSET)
@@ -49,9 +50,11 @@ class Player(shaded_circular_object.ShadedCircularObject):
 	
 	def can_move_to(self, level, offset_x, offset_y):
 		for t in level.tiles:
-			if self.x + offset_x == t.x and self.y + offset_y == t.y:
+			target_position = point.Point(self.x + offset_x, self.y + offset_y)
+			
+			if target_position.has_the_same_position(t):
 				for b in level.boxes:
-					if self.x + offset_x == b.x and self.y + offset_y == b.y:
+					if target_position.has_the_same_position(b):
 						return b.can_be_moved(level, offset_x, offset_y)
 				
 				return True
@@ -60,7 +63,7 @@ class Player(shaded_circular_object.ShadedCircularObject):
 	
 	def move_box(self, level, offset_x, offset_y):
 		for b in level.boxes:
-			if self.x == b.x and self.y == b.y:
+			if self.has_the_same_position(b):
 				b.move(level, offset_x, offset_y)
 	
 	def can_reset_level(self, event):
