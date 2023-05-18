@@ -1,11 +1,11 @@
 import src.ui.text as text
 
-from src.constants import (GAME_WIDTH, GAME_HEIGHT, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
+from src.constants import (GAME_WIDTH, GAME_HEIGHT)
 
 class LevelCompleteText(text.Text):
 	def __init__(self, gm):
-		super().__init__("", 0, 0, UI_TEXT_COLOR, UI_TEXT_FONT_SIZE)
-
+		super().__init__()
+		
 		self.gm = gm
 	
 	def draw(self, surface):

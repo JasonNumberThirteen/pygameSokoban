@@ -4,7 +4,7 @@ from src.constants import (GAME_WIDTH, GAME_HEIGHT)
 
 class PressAnyKeyText(text.Text):
 	def __init__(self, gm):
-		super().__init__("")
+		super().__init__()
 		self.set_text("Press any key to continue", centerx=GAME_WIDTH // 2, bottom=GAME_HEIGHT)
 		
 		self.gm = gm
