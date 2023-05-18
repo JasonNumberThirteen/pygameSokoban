@@ -6,7 +6,7 @@ class GameManager(object):
 	def __init__(self):
 		self.level_number = 1
 		self.level = level.Level(self, self.current_level_data())
-	
+
 	def advance_to_next_level(self):
 		self.level_number += 1
 
@@ -14,9 +14,6 @@ class GameManager(object):
 
 	def restart_level(self):
 		self.level.build(self, self.current_level_data())
-	
-	def on_player_move(self, player):
-		player.moves += 1
 	
 	def it_is_the_last_level(self):
 		return self.level_number == len(LEVEL_FILES)

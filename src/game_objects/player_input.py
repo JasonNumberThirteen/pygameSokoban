@@ -27,9 +27,9 @@ class PlayerInput():
 		if self.player.can_move_to(level, offset_x, offset_y):
 			self.player.x += offset_x
 			self.player.y += offset_y
+			self.player.moves += 1
 
 			self.player.move_box(level, offset_x, offset_y)
-			self.gm.on_player_move(self.player)
 			ui.on_player_move()
 	
 	def on_restart_press(self, level, ui):
