@@ -12,6 +12,15 @@ class Player(shaded_circular_object.ShadedCircularObject):
 		self.moves = 0
 		self.input = player_input.PlayerInput(self, gm)
 	
+	def offset_x(self):
+		return TILE_WIDTH // 2
+	
+	def offset_y(self):
+		return TILE_HEIGHT // 2
+	
+	def shade_offset(self):
+		return PLAYER_SHADE_OFFSET
+	
 	def detect_input(self, event, level, ui):
 		if event.type == pygame.KEYDOWN:
 			self.input.detect_input(event, level, ui)
@@ -23,12 +32,3 @@ class Player(shaded_circular_object.ShadedCircularObject):
 		for b in level.boxes:
 			if self.has_the_same_position(b):
 				b.move(level, offset_x, offset_y)
-	
-	def offset_x(self):
-		return TILE_WIDTH // 2
-	
-	def offset_y(self):
-		return TILE_HEIGHT // 2
-	
-	def shade_offset(self):
-		return PLAYER_SHADE_OFFSET
