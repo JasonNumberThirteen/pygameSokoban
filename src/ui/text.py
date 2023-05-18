@@ -10,6 +10,9 @@ class Text(object):
 		self.set_text(text)
 		self.set_position(x, y)
 	
+	def set_color(self, color):
+		self.color = color
+
 	def set_text(self, text, **kwargs):
 		self.render = self.font.render(text, True, self.color)
 		self.rect = self.render.get_rect(**kwargs)
@@ -17,9 +20,6 @@ class Text(object):
 	def set_position(self, x, y):
 		self.rect.x = x
 		self.rect.y = y
-
-	def set_color(self, color):
-		self.color = color
 	
 	def draw(self, surface):
 		surface.blit(self.render, self.rect)
