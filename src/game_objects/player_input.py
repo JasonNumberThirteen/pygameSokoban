@@ -12,34 +12,23 @@ class PlayerInput():
 				v(level, ui)
 
 	def on_up_press(self, level, ui):
-		if self.player.can_move_to(level, 0, -1):
-			self.player.y -= 1
-
-			self.player.move_box(level, 0, -1)
-			self.gm.on_player_move(self.player)
-			ui.on_player_move()
+		self.on_move_press(level, ui, 0, -1)
 	
 	def on_down_press(self, level, ui):
-		if self.player.can_move_to(level, 0, 1):
-			self.player.y += 1
-
-			self.player.move_box(level, 0, 1)
-			self.gm.on_player_move(self.player)
-			ui.on_player_move()
+		self.on_move_press(level, ui, 0, 1)
 	
 	def on_left_press(self, level, ui):
-		if self.player.can_move_to(level, -1, 0):
-			self.player.x -= 1
-
-			self.player.move_box(level, -1, 0)
-			self.gm.on_player_move(self.player)
-			ui.on_player_move()
+		self.on_move_press(level, ui, -1, 0)
 	
 	def on_right_press(self, level, ui):
-		if self.player.can_move_to(level, 1, 0):
-			self.player.x += 1
+		self.on_move_press(level, ui, 1, 0)
+	
+	def on_move_press(self, level, ui, offset_x, offset_y):
+		if self.player.can_move_to(level, offset_x, offset_y):
+			self.player.x += offset_x
+			self.player.y += offset_y
 
-			self.player.move_box(level, 1, 0)
+			self.player.move_box(level, offset_x, offset_y)
 			self.gm.on_player_move(self.player)
 			ui.on_player_move()
 	
