@@ -50,18 +50,6 @@ class Player(shaded_circular_object.ShadedCircularObject):
 			self.gm.on_player_move(self)
 			ui.on_player_move()
 	
-	def can_move_up(self, event, level):
-		return self.pressed_key(event, PLAYER_UP_MOVEMENT_KEY) and self.can_move_to(level, 0, -1)
-	
-	def can_move_down(self, event, level):
-		return self.pressed_key(event, PLAYER_DOWN_MOVEMENT_KEY) and self.can_move_to(level, 0, 1)
-	
-	def can_move_left(self, event, level):
-		return self.pressed_key(event, PLAYER_LEFT_MOVEMENT_KEY) and self.can_move_to(level, -1, 0)
-	
-	def can_move_right(self, event, level):
-		return self.pressed_key(event, PLAYER_RIGHT_MOVEMENT_KEY) and self.can_move_to(level, 1, 0)
-	
 	def can_move_to(self, level, offset_x, offset_y):
 		return level.tile_is_walkable(self, point.Point(offset_x, offset_y))
 	
